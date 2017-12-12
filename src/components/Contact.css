@@ -1,0 +1,33 @@
+.contact {
+  display: flex;
+  flex-wrap: wrap;
+  position: relative;
+  left: 10%;
+  width: 80%;
+  background-color: white;
+  justify-content: flex-end;
+}
+
+.contact .name, .contact .email {
+  width: 40% !important;
+  margin: 5%;
+}
+
+.contact .message {
+  width: 90% !important;
+  position: relative;
+  left: -5%;
+  text-align: left;
+}
+
+.contact .button {
+  margin-right: 5%;
+}
+
+.contact .progress {
+  margin: auto;
+}
+
+.contact.tall {
+  height: 300px;
+}
