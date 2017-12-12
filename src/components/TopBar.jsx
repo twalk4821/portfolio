@@ -12,10 +12,18 @@ import './TopBar.css';
 
 const title = "Tyler Walker Projects";
 
+const titleStyle = {
+  cursor: "pointer",
+};
+
 const style = {
   position: 'fixed',
   textAlign: 'left',
 };
+
+const scrollUp = () => {
+  window.scrollTo(0,0);
+}
 
 class TopBar extends Component {
   constructor(props) {
@@ -60,10 +68,12 @@ class TopBar extends Component {
       <div>
         <AppBar
           title={title}
+          titleStyle={titleStyle}
           className={classes}
           style={style}
           iconClassNameRight="muidocs-icon-navigation-expand-more"
           onLeftIconButtonClick={this.handleToggle}
+          onTitleClick={scrollUp}
         />
         <Drawer docked={false} open={this.state.open} onRequestChange={(open) => this.setState({open})}>
           <MenuItem onClick={() => this.handleClick("Projects")}>Projects</MenuItem>

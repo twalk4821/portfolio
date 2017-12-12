@@ -6,6 +6,7 @@
   width: 80%;
   background-color: white;
   justify-content: flex-end;
+  margin-bottom: 10%;
 }
 
 .contact .name, .contact .email {

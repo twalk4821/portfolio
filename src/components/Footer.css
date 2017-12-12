@@ -1,0 +1,48 @@
+.footer {
+  display: flex;
+  flex-flow: column;
+  background-color: #0D47A1;
+  color: #ffffff;
+  height: 25vh;
+}
+
+.footer .links {
+  display: inline-flex;
+  justify-content: space-evenly;
+  margin: 2.5% 0;
+}
+
+.github {
+  height: 50px;
+  width: 50px;
+  background-image: url('../assets/github.png');
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+
+.in {
+  height: 50px;
+  width: 50px;
+  background-image: url('../assets/in.png');
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+
+.footer .middle {
+  margin: 5% 0 2.5% 0;
+  font-size: 14px;
+}
+
+.footer .bottom {
+  display: flex;
+  justify-content: center;
+}
+.up {
+  height: 50px;
+  width: 50px;
+  background-image: url('../assets/up.png');
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  cursor: pointer;
+}
+
