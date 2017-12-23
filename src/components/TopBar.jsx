@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import AppBar from 'material-ui/AppBar';
 import Drawer from 'material-ui/Drawer';
 import MenuItem from 'material-ui/MenuItem';
+import logo from '../assets/logo-white.png';
 
 import './TopBar.css';
 
@@ -14,6 +15,13 @@ const title = "Tyler Walker Projects";
 
 const titleStyle = {
   cursor: "pointer",
+  backgroundImage: logo,
+  backgroundSize: "100% 100%",
+  backgroundRepeat: "no-repeat",
+  backgroundPosition: "center",
+  width: "75px",
+  height: "50px",
+
 };
 
 const style = {
@@ -67,7 +75,7 @@ class TopBar extends Component {
     return (
       <div>
         <AppBar
-          title={title}
+          title="                "
           titleStyle={titleStyle}
           className={classes}
           style={style}
@@ -75,6 +83,7 @@ class TopBar extends Component {
           onLeftIconButtonClick={this.handleToggle}
           onTitleClick={scrollUp}
         />
+        <img className="logo" src={logo} />
         <Drawer docked={false} open={this.state.open} onRequestChange={(open) => this.setState({open})}>
           <MenuItem onClick={() => this.handleClick("Projects")}>Projects</MenuItem>
           <MenuItem onClick={() => this.handleClick("About")}>About me</MenuItem>

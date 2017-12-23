@@ -8,3 +8,12 @@
 .top-bar.transparent {
   opacity: .75;
 }
+
+.logo {
+  width: 325px;
+  height: 200px;
+  position: absolute;
+  top: -68px;
+  left: 21px;
+  z-index: 9999;
+}
