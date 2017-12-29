@@ -61,7 +61,7 @@ const tilesData = [
     description: `On this project I worked under the supervision of the designer whose site this would become in order to meet
     her design specifications. We aimed for minimalism and function, while maintaining elegance. The portfolio features subtle animations,
     as well as multiple portfolio pages for exhibiting works.`,
-    url: '#',
+    url: 'http://kelsiyuan.com',
   },
 ];
 
