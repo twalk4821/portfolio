@@ -12,8 +12,17 @@
 .logo {
   width: 325px;
   height: 200px;
-  position: absolute;
+  position: fixed;
   top: -68px;
   left: 21px;
   z-index: 9999;
+  pointer-events: none; 
+}
+
+.drawer {
+  div:first-child {
+    div {
+      margin: 200px 0;
+    }
+  }
 }

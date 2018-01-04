@@ -36,10 +36,10 @@ const tilesData = [
     img: ground,
     title: 'Common Ground',
     subtitle: 'A Meetup Location Finder',
-    description: `Another application build from the "ground" up with members of the Parkbound team, this application lets you choose up to 8 starting locations,
-    called "anchors", and will utilize a mathematical algorithm to find optimal meeting places based on minimum travel time for all parties. The returned results
+    description: `Another application built from the "ground" up with members of the Parkbound team, this application lets you choose up to 8 starting locations,
+    called "anchors", and utilizes a mathematical algorithm to find optimal meeting places based on minimum travel time for all parties. The returned results
     are from the Yelp API, and travel times are discovered with the help of the Google Maps and Distance Matrix APIs. The tech stack includes
-    and Angular front end, Postgres database, as well as a Node server.`,
+    an Angular front end, Postgres database, as well as a Node server.`,
     url: 'http://findcommonground.herokuapp.com',
   },
   {
@@ -47,9 +47,9 @@ const tilesData = [
     img: wizards,
     title: 'Wizards Chess',
     subtitle: 'Chess with Voice Command',
-    description: `Powered by the Speech Recognition API native to Chrome and supported by Firefox with extensions and inspired by the book Harry Potter, this web application enables
-    chess wizards to merely speak the algebraic location and piece name in order to dictate events on the board. The game features a rudimentory ai
-    which I implemented myself using the min-max algorithm for optimizing future board states, as well as supporting the ability to play locally with 
+    description: `Inspired by the book Harry Potter, this web application utilizes the Chrome implementation of the Javascript Speech Recognition API. This allows chess wizards 
+    to issue speak commands to dictate events on the board. The game features a rudimentory ai
+    which I implemented myself using the min-max algorithm for optimizing future board states, as well as supports the ability to play locally with 
     a friend.`,
     url: 'http://wizardschess.club',
   },
@@ -58,9 +58,8 @@ const tilesData = [
     img: kelsi,
     title: 'Kelsi Yuan Design',
     subtitle: 'A Personalized Design Portfolio',
-    description: `On this project I worked under the supervision of the designer whose site this would become in order to meet
-    her design specifications. We aimed for minimalism and function, while maintaining elegance. The portfolio features subtle animations,
-    as well as multiple portfolio pages for exhibiting works.`,
+    description: `A graphic design portfolio I built using React. We aimed for minimalism and function, while maintaining elegance. The portfolio features subtle animations,
+    as well as React Router to fascilitate navigating between multiple portfolio pages.`,
     url: 'http://kelsiyuan.com',
   },
 ];

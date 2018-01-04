@@ -13,21 +13,27 @@ import './TopBar.css';
 
 const title = "Tyler Walker Projects";
 
-const titleStyle = {
-  cursor: "pointer",
-  backgroundImage: logo,
-  backgroundSize: "100% 100%",
-  backgroundRepeat: "no-repeat",
-  backgroundPosition: "center",
-  width: "75px",
-  height: "50px",
-
+const styles = {
+  titleStyle: {
+    cursor: "pointer",
+    backgroundImage: logo,
+    backgroundSize: "100% 100%",
+    backgroundRepeat: "no-repeat",
+    backgroundPosition: "center",
+    width: "75px",
+    height: "50px",
+  },
+  appBarStyle: {
+    position: 'fixed',
+    textAlign: 'left',
+  },
+  containerStyle: {
+    marginTop: '50px',
+  },
 };
 
-const style = {
-  position: 'fixed',
-  textAlign: 'left',
-};
+
+
 
 const scrollUp = () => {
   window.scrollTo(0,0);
@@ -76,15 +82,15 @@ class TopBar extends Component {
       <div>
         <AppBar
           title="                "
-          titleStyle={titleStyle}
+          titleStyle={styles.titleStyle}
           className={classes}
-          style={style}
+          style={styles.appBarStyle}
           iconClassNameRight="muidocs-icon-navigation-expand-more"
           onLeftIconButtonClick={this.handleToggle}
           onTitleClick={scrollUp}
         />
         <img className="logo" src={logo} />
-        <Drawer docked={false} open={this.state.open} onRequestChange={(open) => this.setState({open})}>
+        <Drawer containerStyle={styles.containerStyle} className="drawer" docked={false} open={this.state.open} onRequestChange={(open) => this.setState({open})}>
           <MenuItem onClick={() => this.handleClick("Projects")}>Projects</MenuItem>
           <MenuItem onClick={() => this.handleClick("About")}>About me</MenuItem>
           <MenuItem onClick={() => this.handleClick("Contact")}>Contact</MenuItem>          
