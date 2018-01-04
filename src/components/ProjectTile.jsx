@@ -53,6 +53,9 @@ let styles = {
     backgroundRepeat: 'no-repeat',
     backgroundPosition: 'center',
   },
+  containerStyle: {
+    cursor: 'pointer',
+  }
 
 };
 
@@ -92,6 +95,11 @@ class ProjectTile extends Component {
           style={styles.img}
           overlay={<CardTitle title={title} subtitle={subtitle} />}
           overlayContentStyle={styles.overlay}
+          onClick={()=>{
+            window.history.pushState(null,null,'/');
+            window.location.replace(url);
+          }}
+          overlayContainerStyle={styles.containerStyle}
         >
           <img src={img} alt={title} style={styles.img} />
         </CardMedia>
