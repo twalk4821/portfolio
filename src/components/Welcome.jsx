@@ -3,7 +3,7 @@ import React from 'react';
 const welcomeText = "Welcome! My name is Tyler.";
 
 const style = {
-  
+  marginTop: '450px',
 };
 
 const Welcome = () => (

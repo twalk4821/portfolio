@@ -9,6 +9,11 @@
   margin-bottom: 10%;
 }
 
+.contact-container {
+  background-color: rgb(13, 71, 161);
+
+}
+
 .contact .name, .contact .email {
   width: 40% !important;
   margin: 5%;
