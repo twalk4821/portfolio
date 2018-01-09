@@ -1,0 +1,40 @@
+.frame {
+  position: relative;
+  left: -25vmax;
+  top: 0vh;
+  animation: xAxis 2s 1 cubic-bezier(0, 0.55, 0.49, 1.25);
+  animation-fill-mode: forwards;
+}
+
+.portrait {
+  width: 25vmax;
+  height: 25vmax;
+  position: relative;
+  top: -25vmax;
+  animation: yAxis 2s 1 cubic-bezier(0, 1.04, 0.6, 1.25);
+  animation-fill-mode: forwards;  
+}
+
+@keyFrames xAxis {
+  100% {
+    transform: translateX(calc(12.5vmax + 50vw));
+  }
+}
+
+@keyFrames yAxis {
+  /* 25% {
+    transform: translateY(15vh);
+  }
+
+  50% {
+    transform: translateY(25vh);
+  }
+
+  75% {
+    transform: translateY(22.5vh);
+  } */
+
+  100% {
+    transform: translateY(calc(25vmax + 15vh));
+  }
+}
