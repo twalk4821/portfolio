@@ -6,7 +6,8 @@ const headerContent = "MY PROJECTS";
 
 const styles = {
   root: {
-    margin: '10% 0 5% 0',
+    margin: '0 0 5% 0',
+    marginTop: 'calc(100vh - 25vmax - 20vh - 4vmax)'
   },
   header: {
     textAlign: 'left',
