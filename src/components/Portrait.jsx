@@ -11,10 +11,6 @@ const style = {
 };
 
 class Portrait extends Component {
-  componentDidMount() {
-    const portrait = document.querySelector('.portrait');
-    // animatePortrait(portrait);
-  }
   render() {
     return (
       <div className='frame'>

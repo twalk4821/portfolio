@@ -22,18 +22,6 @@
 }
 
 @keyFrames yAxis {
-  /* 25% {
-    transform: translateY(15vh);
-  }
-
-  50% {
-    transform: translateY(25vh);
-  }
-
-  75% {
-    transform: translateY(22.5vh);
-  } */
-
   100% {
     transform: translateY(calc(25vmax + 15vh));
   }
