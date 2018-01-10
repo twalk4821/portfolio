@@ -1,0 +1,12 @@
+.welcome {
+  margin-top: 20vh;
+  opacity: 0;
+  animation: fadein 1s linear 2.1s 1;
+  animation-fill-mode: forwards;
+}
+
+@keyframes fadein {
+  100% {
+    opacity: 100;
+  }
+}
