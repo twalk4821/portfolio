@@ -6,6 +6,7 @@ import Projects from './components/Projects';
 import About from './components/About';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
+import DownArrow from './components/DownArrow';
 import './App.css';
 
 class App extends Component {
@@ -16,6 +17,7 @@ class App extends Component {
           <TopBar />
           <Portrait />
           <Welcome />
+          <DownArrow />
           <Projects />
           <About />
           <Contact />

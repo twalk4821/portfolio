@@ -1,0 +1,63 @@
+.down {
+  width: 100vw;
+  height: 15vmin;
+  position: relative;
+  top: calc((100vh - 25vmax - 20vh - 4vmax)/2 - 15vmin);
+  display: flex;
+  justify-content: space-around;
+  opacity: 0;
+}
+
+.noscroll {
+  animation: fadein .25s linear 3.1s 1;
+  animation-fill-mode: forwards;
+  opacity: 0;
+}
+
+.down.hidden {
+  opacity: 1;
+  animation: fadeout .5s linear 0s 1;
+  animation-fill-mode: forwards;
+}
+
+.scrolled {
+  opacity: 0;
+  animation: fadein .25s linear 0s 1;
+  animation-fill-mode: forwards;
+}
+
+.down button {
+  background: none;
+  border: none;
+  outline: none;
+}
+
+.down img {
+  height: 15vmin;
+  width: 15vmin;
+  cursor: pointer;
+}
+
+.down img:hover {
+  animation: scaleup .25s linear 0s 1;
+  animation-fill-mode: forwards;
+}
+
+
+@keyframes scaleup {
+  100% {
+    transform: scale(1.15);
+  }
+}
+
+@keyframes fadein {
+  100% {
+    opacity: 100;
+  }
+}
+
+@keyframes fadeout {
+  100% {
+    opacity: 0;
+  }
+}
