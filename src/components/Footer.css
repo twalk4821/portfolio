@@ -9,7 +9,6 @@
 .footer .links {
   display: inline-flex;
   justify-content: space-evenly;
-  margin-top: 10px;
 }
 
 .github {

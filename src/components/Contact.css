@@ -6,12 +6,13 @@
   width: 80%;
   background-color: white;
   justify-content: flex-end;
-  margin-bottom: 10%;
+  padding-bottom: 10px;
 }
 
 .contact-container {
   background-color: rgb(13, 71, 161);
-
+  padding: 10% 0 10% 0;
+  
 }
 
 .contact .name, .contact .email {

@@ -6,7 +6,7 @@ const headerContent = "CONTACT";
 
 const styles = {
   root: {
-    margin: '10% 0 5% 0',
+    margin: '10% 0 10px 0',
   },
   header: {
     textAlign: 'left',
