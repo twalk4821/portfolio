@@ -9,7 +9,7 @@ import wizards from '../assets/wizards.png';
 import parkbound from '../assets/parkbound.png';
 import ground from '../assets/ground.png';
 
-const tilesData = [
+const row1 = [
   {
     id: 1,
     img: trendline,
@@ -21,6 +21,18 @@ const tilesData = [
     url: 'http://trendlinemotorsport.com',
   },
   {
+    id: 5,
+    img: kelsi,
+    title: 'Kelsi Yuan Design',
+    subtitle: 'A Personalized Design Portfolio',
+    description: `A graphic design portfolio I built using React following the specifications of the designer. We aimed for minimalism and function, while maintaining elegance. The portfolio features subtle animations,
+    as well as React Router to fascilitate navigating between multiple portfolio pages.`,
+    url: 'http://kelsiyuan.com',
+  },
+];
+
+const row2 = [
+  {
     id: 2,
     img: parkbound,
     title: 'Parkbound',
@@ -30,17 +42,6 @@ const tilesData = [
     including public APIs and random CSV files. The application features the ability to sort and filter parks by the types of activities available
     there, integration with Fitbit for trails recommendations, as well as offering the option to purchase national passes right from the site.`,
     url: 'http://parkbound.herokuapp.com',
-  },
-  {
-    id: 3,
-    img: ground,
-    title: 'Common Ground',
-    subtitle: 'A Meetup Location Finder',
-    description: `Another application built from the "ground" up with members of the Parkbound team, this application lets you choose up to 8 starting locations,
-    called "anchors", and utilizes a mathematical algorithm to find optimal meeting places based on minimum travel time for all parties. The returned results
-    are from the Yelp API, and travel times are discovered with the help of the Google Maps and Distance Matrix APIs. The tech stack includes
-    an Angular front end, Postgres database, as well as a Node server.`,
-    url: 'http://findcommonground.herokuapp.com',
   },
   {
     id: 4,
@@ -54,21 +55,23 @@ const tilesData = [
     url: 'http://wizardschess.club',
   },
   {
-    id: 5,
-    img: kelsi,
-    title: 'Kelsi Yuan Design',
-    subtitle: 'A Personalized Design Portfolio',
-    description: `A graphic design portfolio I built using React. We aimed for minimalism and function, while maintaining elegance. The portfolio features subtle animations,
-    as well as React Router to fascilitate navigating between multiple portfolio pages.`,
-    url: 'http://kelsiyuan.com',
+    id: 3,
+    img: ground,
+    title: 'Common Ground',
+    subtitle: 'A Meetup Location Finder',
+    description: `Another application built from the "ground" up with members of the Parkbound team, this application lets you choose up to 8 starting locations,
+    called "anchors", and utilizes a mathematical algorithm to find optimal meeting places based on minimum travel time for all parties. The returned results
+    are from the Yelp API, and travel times are discovered with the help of the Google Maps and Distance Matrix APIs. The tech stack includes
+    an Angular front end, Postgres database, as well as a Node server.`,
+    url: 'http://findcommonground.herokuapp.com',
   },
-];
+]
 
 const styles = {
   grid: {
     display: 'flex',
     flexWrap: 'wrap',
-    justifyContent: 'space-between',
+    justifyContent: 'space-evenly',
   },
 
 }
@@ -77,7 +80,12 @@ const Projects = () => (
   <div className="projects">
     <ProjectsHeader />
     <div style={styles.grid} className="projects-grid">
-      {tilesData.map(tile => (
+      {row1.map(tile => (
+        <ProjectTile style={styles.tile} tile={tile} key={tile.title} />
+      ))}
+    </div>
+    <div style={styles.grid} className="projects-grid">
+      {row2.map(tile => (
         <ProjectTile style={styles.tile} tile={tile} key={tile.title} />
       ))}
     </div>
