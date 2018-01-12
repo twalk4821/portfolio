@@ -10,14 +10,12 @@ const styles = {
     marginTop: 'calc(100vh - 25vmax - 20vh - 4vmax)'
   },
   header: {
-    textAlign: 'left',
-    marginLeft: '10%',
     color: blue900,
   }
 };
 
 const ProjectsHeader = () => (
-  <div className='projectsHeader' style={styles.root}>
+  <div className=' header projectsHeader' style={styles.root}>
     <h3 style={styles.header}>{headerContent}</h3>
     <Divider />
   </div>

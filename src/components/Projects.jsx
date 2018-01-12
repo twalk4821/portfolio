@@ -68,7 +68,7 @@ const styles = {
   grid: {
     display: 'flex',
     flexWrap: 'wrap',
-    justifyContent: '',
+    justifyContent: 'space-between',
   },
 
 }

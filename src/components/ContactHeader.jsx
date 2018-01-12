@@ -9,14 +9,12 @@ const styles = {
     margin: '10% 0 10px 0',
   },
   header: {
-    textAlign: 'left',
-    marginLeft: '10%',
     color: blue900,
   }
 };
 
 const ContactHeader = () => (
-  <div className='contactHeader' style={styles.root}>
+  <div className='header contactHeader' style={styles.root}>
     <h3 style={styles.header}>{headerContent}</h3>
     <Divider />
   </div>

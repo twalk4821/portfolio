@@ -10,14 +10,12 @@ const styles = {
     margin: '10% 0 5% 0',
   },
   header: {
-    textAlign: 'left',
-    marginLeft: '10%',
     color: blue900,
   }
 };
 
 const AboutHeader = () => (
-  <div className='aboutHeader' style={styles.root}>
+  <div className='header aboutHeader' style={styles.root}>
     <h3 style={styles.header}>{headerContent}</h3>
     <Divider />
   </div>
