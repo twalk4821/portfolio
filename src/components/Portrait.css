@@ -1,4 +1,5 @@
 .frame {
+  will-change: transform;
   position: relative;
   left: -25vmax;
   top: 0vh;
@@ -7,6 +8,7 @@
 }
 
 .portrait {
+  will-change: transform;
   width: 25vmax;
   height: 25vmax;
   position: relative;
