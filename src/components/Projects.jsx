@@ -71,7 +71,7 @@ const styles = {
   grid: {
     display: 'flex',
     flexWrap: 'wrap',
-    justifyContent: 'space-evenly',
+    justifyContent: 'center',
   },
 
 }
