@@ -42,13 +42,13 @@ class Scroller extends Component {
       scrollY < headerPositions.contact- 25) {
         return {
           up: headerPositions.projects2 + 50,
-          down: headerPositions.contact + 100,
+          down: headerPositions.contact + 200,
         };
     } else if (scrollY > headerPositions.contact && 
       scrollY < headerPositions.contact + 300) {
         return {
           up: headerPositions.about + 100,
-          down: false,
+          down: document.body.scrollHeight,
         };
     } else {
       return false;
