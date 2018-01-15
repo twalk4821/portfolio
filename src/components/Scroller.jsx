@@ -63,6 +63,8 @@ class Scroller extends Component {
   }
 
   render() {
+    const { showScroller } = this.props;
+    if (!showScroller) return null;
     if (!document.querySelector('.projectsHeader')) return null;
 
     const pageSegment = this.getPageSegment();

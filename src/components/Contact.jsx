@@ -132,6 +132,8 @@ class Contact extends Component {
             floatingLabelText="Name"
             floatingLabelStyle={styles.floatingLabelStyle}
             onChange={e => this.handleChange(e, "name")}
+            onFocus={this.props.hideScroller}
+            onBlur={this.props.showScroller}
             type="text"
           />
           <TextField
@@ -141,6 +143,8 @@ class Contact extends Component {
             floatingLabelText="Email"
             floatingLabelStyle={styles.floatingLabelStyle}
             onChange={e => this.handleChange(e, "email")}
+            onFocus={this.props.hideScroller}
+            onBlur={this.props.showScroller}
             text="email"
           />
           <TextField
@@ -154,6 +158,8 @@ class Contact extends Component {
             multiLine={true}
             rows={5}
             onChange={e => this.handleChange(e, "body")}
+            onFocus={this.props.hideScroller}
+            onBlur={this.props.showScroller}
             type="text"
           />
           <RaisedButton 

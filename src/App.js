@@ -12,10 +12,22 @@ import Scroller from './components/Scroller';
 import './App.css';
 
 class App extends Component {
+  state = {
+    showScroller: true,
+  };
+
+  showScroller = () => {
+    this.setState({ showScroller: true });
+  }
+
+  hideScroller = () => {
+    this.setState({ showScroller: false });
+  }
+
   render() {
     return (
       <div className="App">
-        <Scroller />
+        <Scroller showScroller={this.state.showScroller}/>
         <div className="content">
           <TopBar />
           <Portrait />
@@ -23,7 +35,7 @@ class App extends Component {
           <DownArrow />
           <Projects />
           <About />
-          <Contact />
+          <Contact showScroller={this.showScroller} hideScroller={this.hideScroller}/>
         </div>
         <Footer />
       </div>
