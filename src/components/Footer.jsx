@@ -2,7 +2,10 @@ import React from 'react';
 import './Footer.css';
 
 const up = () => {
-  window.scrollTo(0,0);
+  window.scroll({
+    top: 0,
+    behavior:'smooth',
+  });
 };
 
 const Footer = () => (
