@@ -9,8 +9,8 @@
 
 .portrait {
   will-change: transform;
-  width: 25vmax;
-  height: 25vmax;
+  width: 21vmax;
+  height: 27vmax;
   position: relative;
   top: -25vmax;
   animation: yAxis 2s 1 cubic-bezier(0, 1.04, 0.6, 1.25);
@@ -19,12 +19,12 @@
 
 @keyFrames xAxis {
   100% {
-    transform: translateX(calc(12.5vmax + 50vw));
+    transform: translateX(calc(14.5vmax + 50vw));
   }
 }
 
 @keyFrames yAxis {
   100% {
-    transform: translateY(calc(25vmax + 15vh));
+    transform: translateY(calc(23vmax + 15vh));
   }
 }

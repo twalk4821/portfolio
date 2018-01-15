@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Paper from 'material-ui/Paper';
-import photo from '../assets/ty.jpg';
+import photo from '../assets/tyler.jpg';
 import './Portrait.css';
 
 const style = {

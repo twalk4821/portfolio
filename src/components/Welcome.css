@@ -1,5 +1,5 @@
 .welcome {
-  margin-top: 20vh;
+  margin-top: 15vh;
   font-size: 4vmax;
   opacity: 0;
   animation: fadein 1s linear 2.1s 1;
