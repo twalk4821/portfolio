@@ -22,7 +22,7 @@ class DownArrow extends Component {
 
   navigate = () => {
     window.scroll({
-      top: document.querySelector('.projectsHeader').offsetTop-100,
+      top: document.querySelector('.projectsHeader').offsetTop - 75,
       behavior: 'smooth', 
     })
     this.setState({ visible: false });

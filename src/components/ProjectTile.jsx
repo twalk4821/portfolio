@@ -55,6 +55,7 @@ let styles = {
   },
   containerStyle: {
     cursor: 'pointer',
+    zIndex: 9998,        
   }
 
 };

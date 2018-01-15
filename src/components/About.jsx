@@ -21,7 +21,7 @@ const About = () => (
         My first experience coding was building a C++ calculator at the age of 6 (with some oversight from my Dad). Now
         I am loving the potential for analytical problem solving, creativity and expertise that the field of web development
         has to offer. In my spare time I love to write, create and play music (both acoustic and electronic), and exercise (particularly
-        long distance running, my other point of insanity apart from coding).
+        long distance running).
       </p>
     </div>
   </div>
