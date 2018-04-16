@@ -18,7 +18,7 @@ const row1 = [
     description: `I built this site from the ground up using React, Redux, Postgres and Node (the lesser known "RRPN" stack). The site features an extensive
     storefront with multi-tiered categorical organization, search, a chatbot, ability to make purchases and handle orders,
     secure account information, and more.`,
-    url: 'http://trendlinemotorsport.com',
+    url: 'http://trendline-motorsport.herokuapp.com',
   },
   {
     id: 5,
