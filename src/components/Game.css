@@ -1,0 +1,37 @@
+.game-window {
+  background-color: black;
+  color: white;
+}
+
+.game-window h1, .game-window h3 {
+  background: red;
+  background: -webkit-linear-gradient(left, orange , yellow, green, cyan, blue, violet);
+  background: -o-linear-gradient(right, orange, yellow, green, cyan, blue, violet);
+  background: -moz-linear-gradient(right, orange, yellow, green, cyan, blue, violet);
+  background: linear-gradient(to right, orange , yellow, green, cyan, blue, violet);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 20px;
+}
+
+.game-window h1 {
+  font-size: 40px;  
+}
+
+.options {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  padding: 20px;
+}
+
+.options input {
+  margin-right: 20px;
+}
+
+.options button {
+  width: 160px;
+  height: 40px;
+  border-radius: 5px;
+  cursor: pointer;
+}
