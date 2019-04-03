@@ -2,7 +2,7 @@ import React from 'react';
 import Divider from 'material-ui/Divider';
 import { blue900 } from 'material-ui/styles/colors';
 
-const headerContent = "MY PROJECTS";
+const headerContent = "FEATURED PROJECTS";
 
 const styles = {
   root: {

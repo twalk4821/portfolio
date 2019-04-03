@@ -35,9 +35,9 @@ class App extends Component {
           <Welcome />
           <DownArrow />
           <Projects />
-          <Game />
           <About />
           <Contact showScroller={this.showScroller} hideScroller={this.hideScroller}/>
+          <Game />
         </div>
         <Footer />
       </div>

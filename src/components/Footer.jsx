@@ -15,7 +15,7 @@ const Footer = () => (
       <a className="github" href="https://linkedin.com/in/tylerjohnwalker"></a>
     </div>
     <div className="middle">
-      Copyright &#169; Tyler Walker &#8226; Fullstack Web Developer based in Berkeley, CA 
+      Copyright &#169; Tyler Walker &#8226; Mobile Developer based in Berkeley, CA 
     </div>
     <div className="bottom">
       <div className="up" onClick={up}>

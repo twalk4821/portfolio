@@ -13,7 +13,7 @@ import './ProjectTile.css';
 let styles = {
   tile: {
     width: '300px',
-    height: '250px',
+    height: '300px',
     marginBottom: '100px',
     marginRight: '10px',
   },
@@ -29,7 +29,7 @@ let styles = {
   },
   paper: {
     width: '300px',
-    height: '310px',
+    height: '300px',
   },
   title: {
     fontSize: '16px',
@@ -39,7 +39,7 @@ let styles = {
   },
   description: {
     textAlign: 'left',
-    height: '200px',
+    height: '250px',
   },
   view: {
     backgroundImage: `url(${eye})`,
@@ -69,8 +69,8 @@ class ProjectTile extends Component {
   }
 
   handleExpandChange(expanded) {
-    styles.tile.marginBottom = expanded ? '400px' : '100px';
-    styles.paper.height = expanded ? '670px' : '310px';
+    styles.tile.marginBottom = expanded ? '450px' : '200px';
+    styles.paper.height = expanded ? '720px' : '290px';
     this.setState({ expanded });
   };
   handleToggle = (event, toggle) => {

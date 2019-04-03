@@ -22,27 +22,20 @@ class Scroller extends Component {
     const { scrollY } = this.state;
     const headerPositions = {
       projects: document.querySelector('.projectsHeader').offsetTop - 100,
-      projects2: document.querySelector('.projectsHeader').offsetTop + 250,
       about: document.querySelector('.aboutHeader').offsetTop - 200,
       contact: document.querySelector('.contactHeader').offsetTop - 200,
     };
     if (scrollY > headerPositions.projects && 
-        scrollY < headerPositions.projects2 - 25) {
-          return {
-            up: "0",
-            down: headerPositions.projects2 + 50,
-          };
-    } else if (scrollY > headerPositions.projects2  &&
         scrollY < headerPositions.about - 25) {
           return {
-            up: headerPositions.projects + 75,
-            down: headerPositions.about + 100,
+            up: "0",
+            down: headerPositions.about + 50,
           };
-        } else if (scrollY > headerPositions.about && 
+         } else if (scrollY > headerPositions.about && 
       scrollY < headerPositions.contact- 25) {
         return {
-          up: headerPositions.projects2 + 50,
-          down: headerPositions.contact + 200,
+          up: headerPositions.projects + 50,
+          down: headerPositions.contact + 125,
         };
     } else if (scrollY > headerPositions.contact && 
       scrollY < headerPositions.contact + 300) {
