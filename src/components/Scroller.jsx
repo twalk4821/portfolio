@@ -24,19 +24,26 @@ class Scroller extends Component {
       projects: document.querySelector('.projectsHeader').offsetTop - 100,
       about: document.querySelector('.aboutHeader').offsetTop - 200,
       contact: document.querySelector('.contactHeader').offsetTop - 200,
+      blog: document.querySelector('.blogHeader').offsetTop - 100
     };
     if (scrollY > headerPositions.projects && 
-        scrollY < headerPositions.about - 25) {
-          return {
-            up: "0",
-            down: headerPositions.about + 50,
-          };
-         } else if (scrollY > headerPositions.about && 
-      scrollY < headerPositions.contact- 25) {
+      scrollY < headerPositions.blog - 25) {
+      return {
+        up: "0",
+        down: headerPositions.blog + 25,
+      };
+    } else if (scrollY > headerPositions.blog && 
+      scrollY < headerPositions.about- 25) {
         return {
           up: headerPositions.projects + 50,
-          down: headerPositions.contact + 125,
+          down: headerPositions.about + 125,
         };
+    } else if (scrollY > headerPositions.about && 
+    scrollY < headerPositions.contact- 25) {
+      return {
+        up: headerPositions.blog + 50,
+        down: headerPositions.contact + 125,
+      };
     } else if (scrollY > headerPositions.contact && 
       scrollY < headerPositions.contact + 300) {
         return {

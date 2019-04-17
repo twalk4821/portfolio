@@ -18,6 +18,7 @@
   background-image: url('../assets/github.png');
   background-size: 100% 100%;
   background-repeat: no-repeat;
+  color: transparent;
 }
 
 .in {
@@ -26,6 +27,7 @@
   background-image: url('../assets/in.png');
   background-size: 100% 100%;
   background-repeat: no-repeat;
+  color: transparent;
 }
 
 .footer .middle {

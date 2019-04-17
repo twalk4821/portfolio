@@ -65,6 +65,9 @@ class TopBar extends Component {
     if (item === "Projects") {
       window.scrollTo(0, document.querySelector('.projectsHeader').offsetTop-100);
       this.setState({ open: false });
+    } else if (item === "Blog") {
+      window.scrollTo(0, document.querySelector('.blogHeader').offsetTop-100);
+      this.setState({ open: false });
     } else if (item === "Contact") {
       window.scrollTo(0, document.querySelector('.contactHeader').offsetTop-100);
       this.setState({ open: false });
@@ -92,6 +95,7 @@ class TopBar extends Component {
         <img className="logo" src={logo} />
         <Drawer containerStyle={styles.containerStyle} className="drawer" docked={false} open={this.state.open} onRequestChange={(open) => this.setState({open})}>
           <MenuItem onClick={() => this.handleClick("Projects")}>Projects</MenuItem>
+          <MenuItem onClick={() => this.handleClick("Blog")}>Blog</MenuItem>
           <MenuItem onClick={() => this.handleClick("About")}>About me</MenuItem>
           <MenuItem onClick={() => this.handleClick("Contact")}>Contact</MenuItem>          
           <iframe src="https://open.spotify.com/embed?uri=spotify:user:1214482391:playlist:1PcqBhKoO26mYuLIzSuvKv" width="300" height="380" frameBorder="0" allowtransparency="true"></iframe>

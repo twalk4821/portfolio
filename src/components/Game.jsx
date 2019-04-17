@@ -10,7 +10,6 @@ class GameWindow extends React.Component {
       playing: false,
     };
 
-    this.game = new Game(false);
     this.frame = React.createRef();
   }
 
@@ -21,6 +20,7 @@ class GameWindow extends React.Component {
 
   startGame = () => {
     const { withMusic } = this.state;
+    this.game = new Game(false);
     this.game.mount(this.frame.current);
     this.game.play(withMusic);
     this.setState({ playing: true });

@@ -3,6 +3,7 @@ import TopBar from './components/TopBar';
 import Portrait from './components/Portrait';
 import Welcome from './components/Welcome';
 import Projects from './components/Projects';
+import Blog from './components/Blog';
 import Game from './components/Game.jsx';
 import About from './components/About';
 import Contact from './components/Contact';
@@ -35,6 +36,7 @@ class App extends Component {
           <Welcome />
           <DownArrow />
           <Projects />
+          <Blog />
           <About />
           <Contact showScroller={this.showScroller} hideScroller={this.hideScroller}/>
           <Game />
