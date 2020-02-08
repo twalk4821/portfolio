@@ -6,7 +6,7 @@
     "kelsi3D": "git+https://git@github.com/twalk4821/kelsiWorld3D.git",
     "material-ui": "^0.20.0",
     "react": "^16.3.2",
-    "react-dom": "^16.3.2",
+    "react-dom": "^16.3.3",
     "react-scripts": "^2.1.8"
   },
   "scripts": {
