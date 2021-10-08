@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
+import RaisedButton from 'material-ui/RaisedButton';
 import TextField from 'material-ui/TextField';
 import { blue900 } from 'material-ui/styles/colors';
-import RaisedButton from 'material-ui/RaisedButton';
 import CircularProgress from 'material-ui/CircularProgress';
 import Snackbar from 'material-ui/Snackbar';
 import ContactHeader from './ContactHeader';
 import './Contact.css';
+import gmail from '../assets/gmail.jpeg'
 
 const styles = {
   errorStyle: {
@@ -125,55 +126,7 @@ class Contact extends Component {
         <ContactHeader />
         <div className="contact-container">
         <div className="contact">
-          <TextField
-            className="name"
-            errorText={nameMessage}
-            errorStyle={styles.errorStyle}
-            floatingLabelText="Name"
-            floatingLabelStyle={styles.floatingLabelStyle}
-            onChange={e => this.handleChange(e, "name")}
-            onFocus={this.props.hideScroller}
-            onBlur={this.props.showScroller}
-            type="text"
-          />
-          <TextField
-            className="email"
-            errorText={emailMessage}
-            errorStyle={styles.errorStyle}
-            floatingLabelText="Email"
-            floatingLabelStyle={styles.floatingLabelStyle}
-            onChange={e => this.handleChange(e, "email")}
-            onFocus={this.props.hideScroller}
-            onBlur={this.props.showScroller}
-            text="email"
-          />
-          <TextField
-            className="message"
-            hintText="Tell me about what you're working on/need help with."
-            hintStyle={styles.errorStyle}
-            errorText={bodyMessage}
-            errorStyle={styles.errorStyle}
-            floatingLabelText="Message"
-            floatingLabelStyle={styles.floatingLabelStyle}
-            multiLine={true}
-            rows={5}
-            onChange={e => this.handleChange(e, "body")}
-            onFocus={this.props.hideScroller}
-            onBlur={this.props.showScroller}
-            type="text"
-          />
-          <RaisedButton 
-            className="button"
-            label="Send" 
-            style={styles.button}
-            onClick={this.handleClick} 
-          />
-          <Snackbar
-            open={this.state.successMessage.length > 0}
-            message={this.state.successMessage}
-            autoHideDuration={10000}
-            onRequestClose={this.handleRequestClose}
-          />
+        <RaisedButton style={styles.button} onClick={() => window.open('mailto:tyjohnwalker@gmail.com')}><img src={gmail} /></RaisedButton>
         </div>
         </div>
       </div>

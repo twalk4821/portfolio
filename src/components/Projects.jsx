@@ -3,6 +3,7 @@ import React from 'react';
 import ProjectsHeader from './ProjectsHeader';
 import ProjectTile from './ProjectTile';
 
+import psapp from '../assets/psapp.webp'
 import greenhouse from '../assets/greenhouse.png'
 import societi from '../assets/societi.png'
 import kanjiIOS from '../assets/kanji-ios.jpg';
@@ -11,32 +12,30 @@ import defcon5 from '../assets/defcon5.png'
 
 const row1 = [
   {
+    id: 0,
+    img: psapp,
+    title: 'PSApp',
+    subtitle: 'Ecommerce and Social App',
+    description: `Brand new flagship app developed specially for the PS5 console.
+    As a cross-platform developer, I worked on both the iOS and Android versions of this app.
+    I worked extensively on the native store, as well as on a cross-platform server called
+    GraphQL.`,
+    url: 'https://play.google.com/store/apps/details?id=com.scee.psxandroid'
+  },
+  {
     id: 1,
     img: greenhouse,
-    title: 'Greenhouse',
-    subtitle: 'Money Management App',
-    description: `This is the first app I worked on as a full-time application developer at Wells Fargo. Working on the
+    title: 'Wells Fargo',
+    subtitle: 'Mobile Banking App',
+    description: `This is the first app I worked on as a full-time developer. At Wells Fargo, Working on the
     Android adaptation of the existing iOS Greenhouse app, I got to be exclusively in-charge of 
     the implementation of key features of the application. Primarly, I owned the "Shuffle" feature of
     the app, which showcases rows of sliders (SeekBars) enabling users to intuitively shuffle money
     around to various partitions. I designed the implementation to be "reactive" by employing Android's
-    LiveData and Data-Binding APIs. As a result I believe the code I wrote to be maintainable and modular,
-    and well as responsive from an UI point of view.`,
-    url: 'https://play.google.com/store/apps/details?id=com.wellsfargo.greenhouse&hl=en_US'
+    LiveData and Data-Binding APIs.`,
+    url: 'https://play.google.com/store/apps/details?id=com.wf.wellsfargomobile'
   },
-  {
-    id: 2,
-    img: societi,
-    title: 'Societi',
-    subtitle: 'Live TV Trivia',
-    description: `I worked as a freelancer with full ownership of the Android implementation of this app. 
-    I took the project because I believed the idea to be quite ingenious: you answer questions about the given tv show
-    or sporting event before it happens, making predictions about what you believe will happen, and are awarded payouts 
-    based on correct predictions. For this app I followed an architectural strategy of MVP, with Retrofit as the HTTP client
-    and invoking callbacks to update the UI. It is a Kotlin app, and I also employed Constraint Layout for most screens as well as some RxJava
-    for managing asynchronous subscriptions.`,
-    url: 'https://play.google.com/store/apps/details?id=com.Societi&hl=en_US',
-  },
+
   {
     id: 3,
     img: kanjiAndroid,
@@ -61,6 +60,19 @@ const row1 = [
 
     UI Design by Kelsi Yuan: http://jingwu-yuan.com`,
     url: 'https://itunes.apple.com/us/app/kanji-reader/id1457506025?mt=8',
+  },
+  {
+    id: 2,
+    img: societi,
+    title: 'Societi',
+    subtitle: 'Live TV Trivia',
+    description: `I worked as a freelancer with full ownership of the Android implementation of this app. 
+    I took the project because I believed the idea to be quite ingenious: you answer questions about the given tv show
+    or sporting event before it happens, making predictions about what you believe will happen, and are awarded payouts 
+    based on correct predictions. For this app I followed an architectural strategy of MVP, with Retrofit as the HTTP client
+    and invoking callbacks to update the UI. It is a Kotlin app, and I also employed Constraint Layout for most screens as well as some RxJava
+    for managing asynchronous subscriptions.`,
+    url: 'https://play.google.com/store/apps/details?id=com.Societi&hl=en_US',
   },
   {
     id: 5,
