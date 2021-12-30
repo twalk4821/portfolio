@@ -13,9 +13,9 @@ const styles = {
   }
 };
 
-const ContactHeader = () => (
-  <div className='header blogHeader' style={styles.root}>
-    <h3 style={styles.header}>{headerContent}</h3>
+const ContactHeader = ({ text, margin }) => (
+  <div className='header blogHeader' style={{ margin: margin ?? styles.root.margin}}>
+    <h3 style={styles.header}>{text ?? headerContent}</h3>
     <Divider />
   </div>
 );

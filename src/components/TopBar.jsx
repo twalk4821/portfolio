@@ -78,6 +78,7 @@ class TopBar extends Component {
   }
 
   render() {
+    const { onBack } = this.props;
     const { scrollY } = this.state;
     const classes = "top-bar" + (scrollY > 0 ? " transparent" : "");
 
@@ -89,7 +90,7 @@ class TopBar extends Component {
           className={classes}
           style={styles.appBarStyle}
           iconClassNameRight="muidocs-icon-navigation-expand-more"
-          onLeftIconButtonClick={this.handleToggle}
+          onLeftIconButtonClick={onBack || this.handleToggle}
           onTitleClick={scrollUp}
         />
         <img className="logo" src={logo} />

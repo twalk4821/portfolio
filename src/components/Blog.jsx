@@ -1,4 +1,5 @@
-import React, { Component } from 'react';
+import React, { Component, useState, useEffect } from 'react';
+import { useNavigate } from "react-router-dom";
 import RaisedButton from 'material-ui/RaisedButton';
 import BlogHeader from './BlogHeader'
 import BlogPost from './BlogPost'
@@ -10,51 +11,48 @@ const styles = {
     paddingRight: "15px",
   }
 }
-class Blog extends Component {
-  state = {
-    posts: [],
-    displayPosts: [],
-    buttonText: "Show More"
-  }
+const Blog = () => {
 
-  componentDidMount() {
+  const [posts, setPosts] = useState([]);
+  const [displayPosts, setDisplayPosts] = useState([]);
+  const [buttonText, setButtonText] = useState("Show More");
+
+  const navigate = useNavigate();
+
+  useEffect(() => {
     fetch('https://api.rss2json.com/v1/api.json?rss_url=https://medium.com/feed/@tylerwalker')
    .then((res) => res.json())
    .then((data) => {
       const { items } = data
-      const posts = items.filter(item => item.categories.length === 5)
-      const top3 = posts.slice(0, 3)
-      this.setState({ posts, displayPosts: top3 })
+      const _posts = items.filter(item => item.categories.length >= 3)
+      const top3 = _posts.slice(0, 3)
+      setPosts(_posts)
+      setDisplayPosts(top3)
     })
-  }
+  }, [])
 
-  toggle = () => {
-    const { posts, buttonText } = this.state
-
-    var displayPosts, text
+  const toggle = () => {
     if (buttonText === "Show More") {
-      text = "Show Less"
-      displayPosts = posts
+      setButtonText("See all")
+      setDisplayPosts(posts)
     } else {
-      text = "Show More"
-      displayPosts = posts.slice(0, 3)
+      navigate("/blog")
     }
-
-    this.setState({ buttonText: text, displayPosts })
   }
 
-  render() {
-    return (
-      <div className="blog">
-        <BlogHeader />
-        { this.state.displayPosts.map((post, i) => (
-          <BlogPost post={post} key={`post-${i}`} />
-        ))
-        }
-        <RaisedButton style={styles.button} onClick={this.toggle}>{this.state.buttonText}</RaisedButton>
+  return (
+    <div className="blog">
+      <BlogHeader />
+      <div style={{ display: 'flex', 'flexDirection': 'row', justifyContent: 'flex-end'}}>
+        <RaisedButton style={{ marginTop: -55, marginRight: 60, marginBottom: 20}} onClick={() => navigate("/blog")}>See All</RaisedButton>
       </div>
-    )
-  }
+      { displayPosts.map((post, i) => (
+        <BlogPost post={post} key={`post-${i}`} />
+      ))
+      }
+      <RaisedButton style={styles.button} onClick={toggle}>{buttonText}</RaisedButton>
+    </div>
+  );
 }
 
 export default Blog
