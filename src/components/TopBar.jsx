@@ -99,7 +99,7 @@ class TopBar extends Component {
           <MenuItem onClick={() => this.handleClick("Blog")}>Blog</MenuItem>
           <MenuItem onClick={() => this.handleClick("About")}>About me</MenuItem>
           <MenuItem onClick={() => this.handleClick("Contact")}>Contact</MenuItem>          
-          <iframe src="https://open.spotify.com/embed?uri=spotify:user:1214482391:playlist:1PcqBhKoO26mYuLIzSuvKv" width="300" height="380" frameBorder="0" allowtransparency="true"></iframe>
+          <iframe style={{ "borderRadius": 12 }} src="https://open.spotify.com/embed/playlist/1PcqBhKoO26mYuLIzSuvKv?utm_source=generator" width="100%" height="352" frameBorder="0" allowFullScreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
         </Drawer> 
       </div>
     );

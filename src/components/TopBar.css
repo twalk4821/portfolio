@@ -18,11 +18,3 @@
   z-index: 9999;
   pointer-events: none; 
 }
-
-.drawer {
-  div:first-child {
-    div {
-      margin: 200px 0;
-    }
-  }
-}
