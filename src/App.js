@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, useEffect, useState } from 'react';
 import TopBar from './components/TopBar';
 import Portrait from './components/Portrait';
 import Welcome from './components/Welcome';
@@ -12,39 +12,41 @@ import DownArrow from './components/DownArrow';
 import Scroller from './components/Scroller';
 
 import './App.css';
+import { initGA, logPageView } from './analytics/index.js';
 
-class App extends Component {
-  state = {
-    showScroller: true,
-  };
+const App = () => {
+  const [isShowScroller, setShowScroller] = useState(false);
 
-  showScroller = () => {
-    this.setState({ showScroller: true });
+  const showScroller = () => {
+    setShowScroller(true);
   }
 
-  hideScroller = () => {
-    this.setState({ showScroller: false });
+  const hideScroller = () => {
+    setShowScroller(false);
   }
 
-  render() {
-    return (
-      <div className="App">
-        <Scroller showScroller={this.state.showScroller}/>
-        <div className="content">
-          <TopBar />
-          <Portrait />
-          <Welcome />
-          <DownArrow />
-          <Projects />
-          <Blog />
-          <About />
-          <Contact showScroller={this.showScroller} hideScroller={this.hideScroller}/>
-          <Game />
-        </div>
-        <Footer />
+  useEffect(() => {
+    initGA();
+    logPageView("home");
+  }, []);
+
+  return (
+    <div className="App">
+      <Scroller showScroller={isShowScroller}/>
+      <div className="content">
+        <TopBar />
+        <Portrait />
+        <Welcome />
+        <DownArrow />
+        <Projects />
+        <Blog />
+        <About />
+        <Contact showScroller={showScroller} hideScroller={hideScroller}/>
+        <Game />
       </div>
-    );
-  }
+      <Footer />
+    </div>
+  );
 }
 
 export default App;

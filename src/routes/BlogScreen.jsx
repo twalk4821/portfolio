@@ -6,6 +6,7 @@ import BlogPostFull from '../components/BlogPostFull'
 import { blue900 } from 'material-ui/styles/colors';
 import TopBar from '../components/TopBar';
 import Divider from 'material-ui/Divider';
+import { logPageView } from '../analytics';
 
 const styles = {
   button: {
@@ -14,6 +15,10 @@ const styles = {
   }
 }
 const BlogScreen = () => {
+
+  useEffect(() => {
+    logPageView('blog');
+  }, []);
 
     const [categories, setCategories] = useState([])
     const [selectedCategories, setSelectedCategories] = useState([])
