@@ -96,7 +96,7 @@ class TopBar extends Component {
         <img className="logo" src={logo} />
         <Drawer containerStyle={styles.containerStyle} className="drawer" docked={false} open={this.state.open} onRequestChange={(open) => this.setState({open})}>
           <MenuItem onClick={() => this.handleClick("Projects")}>Projects</MenuItem>
-          <MenuItem onClick={() => this.handleClick("Blog")}>Medium</MenuItem>
+          <MenuItem onClick={() => this.handleClick("Blog")}>Blog</MenuItem>
           <MenuItem onClick={() => this.handleClick("About")}>About me</MenuItem>
           <MenuItem onClick={() => this.handleClick("Contact")}>Contact</MenuItem>          
           <iframe style={{ "borderRadius": 12 }} src="https://open.spotify.com/embed/playlist/1PcqBhKoO26mYuLIzSuvKv?utm_source=generator" width="100%" height="352" frameBorder="0" allowFullScreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
