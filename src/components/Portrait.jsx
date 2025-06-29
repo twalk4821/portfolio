@@ -16,8 +16,8 @@ const Portrait = () => {
   };
 
   return (
-    <div className={isLoaded ? 'frame' : undefined}>
-      <Paper className={isLoaded ? 'portrait' : undefined} onLoad={onLoad} style={style} zDepth={3} circle={true} >
+    <div className={isLoaded ? 'frame' : 'opaque'}>
+      <Paper className={isLoaded ? 'portrait' : 'opaque'} onLoad={onLoad} style={style} zDepth={3} circle={true} >
         <img src={photo} style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: 200  }} />
       </Paper>
     </div>
