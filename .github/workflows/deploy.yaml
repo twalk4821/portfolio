@@ -23,9 +23,9 @@ jobs:
       run: |
         ssh ${{ secrets.EC2_USER }}@${{ secrets.EC2_HOST }} << 'EOF'
           cd ./portfolio
-          git pull origin master
-          yarn install
-          yarn build
+          sudo git pull origin master
+          sudo yarn install
+          sudo yarn build
           sudo rm -rf /data/build
           sudo mv ./build /data
         EOF
