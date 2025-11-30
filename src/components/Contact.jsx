@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import RaisedButton from 'material-ui/RaisedButton';
 import TextField from 'material-ui/TextField';
 import { blue900 } from 'material-ui/styles/colors';
@@ -26,112 +26,93 @@ const styles = {
   },
 };
 
-class Contact extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      name: "",
-      email: "",
-      body: "",
-      messages: {
-        name: "",
-        email: "",
-        body: "",
-      },
-      sending: false,
-      successMessage: "",
-    };
-    this.handleChange = this.handleChange.bind(this);
-    this.handleClick = this.handleClick.bind(this);
-  }
+const Contact = ({ showScroller, hideScroller }) => {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [body, setBody] = useState("");
+  const [messages, setMessages] = useState({
+    name: "",
+    email: "",
+    body: "",
+  });
+  const [sending, setSending] = useState(false);
+  const [successMessage, setSuccessMessage] = useState("");
 
-  handleChange(e, propertyName) {
-    this.setState({
-      [propertyName]: e.target.value
-    });
-  }
+  const handleChange = (propertyName, value) => {
+    if (propertyName === 'name') {
+      setName(value);
+    } else if (propertyName === 'email') {
+      setEmail(value);
+    } else if (propertyName === 'body') {
+      setBody(value);
+    }
+  };
 
-  handleClick() {
-    if (this.state.name.length === 0) {
-      const { email, body } = this.state.messages;
-      const name = "Name is a required field.";
-      this.setState({ messages: { name, email, body }});
+  const validEmail = (email) => {
+    return email.match(/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/);
+  };
+
+  const handleClick = () => {
+    if (name.length === 0) {
+      setMessages({ name: "Name is a required field.", email: messages.email, body: messages.body });
       return;
     }
 
-    if (this.state.email.length === 0) {
-      const { name, body } = this.state.messages;
-      const email = "Email is a required field.";
-      this.setState({ messages: { name, email, body }});
+    if (email.length === 0) {
+      setMessages({ name: messages.name, email: "Email is a required field.", body: messages.body });
       return;
     }
 
-    if (this.state.body.length === 0) {
-      const { email, name } = this.state.messages;
-      const body = "Tell me what you're working on.";
-      this.setState({ messages: { name, email, body }});
+    if (body.length === 0) {
+      setMessages({ name: messages.name, email: messages.email, body: "Tell me what you're working on." });
       return;
     }
 
-    if (!this.validEmail(this.state.email)) {
-      const { name, body } = this.state.messages;
-      const email = "Must be a valid email address.";
-      this.setState({ messages: { name, email, body }});
+    if (!validEmail(email)) {
+      setMessages({ name: messages.name, email: "Must be a valid email address.", body: messages.body });
       return;
     }
 
-    const { name, email, body } = this.state;
-
-    this.setState({ sending: true });
+    setSending(true);
     window.emailjs.send('gmail','template', { name, email, body })
     .then(res => {
-      this.setState({ sending: false });
+      setSending(false);
       if (res.status === 200) {
-        this.setState({ 
-          successMessage: "Your message was sent successfully! I'll get back to you as soon as I can."
-        });
+        setSuccessMessage("Your message was sent successfully! I'll get back to you as soon as I can.");
       } else {
-        this.setState({ 
-          successMessage: "There was a problem sending your message."
-        });
+        setSuccessMessage("There was a problem sending your message.");
       }
     });
-  }
+  };
 
-  validEmail(email) {
-    return email.match(/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/);
-  }
+  const { name: nameMsg, email: emailMsg, body: bodyMsg } = messages;
+  const nameMessage = nameMsg ? nameMsg : "";
+  const emailMessage = emailMsg ? emailMsg : "";
+  const bodyMessage = bodyMsg ? bodyMsg : "";
 
-  render() {
-    const { name, email, body } = this.state.messages;
-    const nameMessage = name ? name : "";
-    const emailMessage = email ? email : "";
-    const bodyMessage = body ? body : "";
-
-    if (this.state.sending) {
-      return (
-        <div>
-          <ContactHeader />
-          <div className="contact-container">
-            <div className="contact tall">
-              <CircularProgress className="progress" size={80} thickness={5} />
-            </div>
-          </div>
-        </div>
-      )
-    }
-
+  if (sending) {
     return (
       <div>
         <ContactHeader />
         <div className="contact-container">
-        <div className="contact">
-        <RaisedButton style={styles.button} onClick={() => window.open('mailto:tyjohnwalker@gmail.com')}><img src={gmail} /></RaisedButton>
-        </div>
+          <div className="contact tall">
+            <CircularProgress className="progress" size={80} thickness={5} />
+          </div>
         </div>
       </div>
     )
   }
+
+  return (
+    <div>
+      <ContactHeader />
+      <div className="contact-container">
+      <div className="contact">
+      <RaisedButton style={styles.button} onClick={() => window.open('mailto:tyjohnwalker@gmail.com')}><img src={gmail} /></RaisedButton>
+      </div>
+      </div>
+    </div>
+  )
 }
 
 export default Contact;

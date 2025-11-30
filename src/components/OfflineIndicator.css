@@ -1,0 +1,38 @@
+.offline-indicator {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 10000;
+  background-color: #0a0a0a;
+  color: #00aaff;
+  padding: 12px 20px;
+  border: 2px solid #00aaff;
+  border-radius: 4px;
+  box-shadow: 
+    0 0 10px rgba(0, 170, 255, 0.5),
+    0 0 20px rgba(0, 170, 255, 0.3),
+    inset 0 0 10px rgba(0, 170, 255, 0.1);
+  font-family: 'Courier New', 'Monaco', 'Menlo', monospace;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.offline-indicator-content {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  position: relative;
+}
+
+.offline-indicator-icon {
+  font-size: 18px;
+  filter: drop-shadow(0 0 3px #00aaff);
+}
+
+.offline-indicator-text {
+  font-size: 12px;
+  font-weight: 600;
+  text-shadow: 0 0 5px #00aaff;
+  position: relative;
+}
+
