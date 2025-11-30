@@ -1,25 +1,26 @@
-import React, { Component } from 'react';
+import React, { useState, useEffect } from 'react';
 import upArrow from '../assets/scrollUp.png';
 import downArrow from '../assets/down.png';
 
 import './Scroller.css';
 
-class Scroller extends Component {
-  state = {
-    scrollY: 0,
-  };
+const Scroller = ({ showScroller }) => {
+  const [scrollY, setScrollY] = useState(0);
 
-  componentDidMount() {
-    window.onscroll = this.handleScroll;
-  }
+  useEffect(() => {
+    const handleScroll = () => {
+      const { scrollY } = window;
+      setScrollY(scrollY);
+    };
 
-  handleScroll = () => {
-    const { scrollY } = window;
-    this.setState({ scrollY });
-  }
+    window.addEventListener('scroll', handleScroll);
 
-  getPageSegment = () => {
-    const { scrollY } = this.state;
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
+  const getPageSegment = () => {
     const headerPositions = {
       projects: document.querySelector('.projectsHeader').offsetTop - 100,
       about: document.querySelector('.aboutHeader').offsetTop - 200,
@@ -53,39 +54,36 @@ class Scroller extends Component {
     } else {
       return false;
     }
-  }
+  };
 
-  navigateTo = (position) => {
+  const navigateTo = (position) => {
     window.scroll({
       top: position,
       behavior: 'smooth',
     });
-  }
+  };
 
-  render() {
-    const { showScroller } = this.props;
-    if (!showScroller) return null;
-    if (!document.querySelector('.projectsHeader')) return null;
+  if (!showScroller) return null;
+  if (!document.querySelector('.projectsHeader')) return null;
 
-    const pageSegment = this.getPageSegment();
-    if (!pageSegment) return null;
+  const pageSegment = getPageSegment();
+  if (!pageSegment) return null;
 
-    const { up, down } = pageSegment;
-    return (
-      <div className="scroller">
-        {up &&
-          <button className="scroll-up" onClick={() => this.navigateTo(up)}>
-            <img src={upArrow} alt="up"/>
-          </button>
-        }
-        {down &&
-          <button className="scroll-down" onClick={() => this.navigateTo(down)}>
-            <img src={downArrow} alt="down"/>
-          </button>
-        }
-      </div>
-    );
-  }
+  const { up, down } = pageSegment;
+  return (
+    <div className="scroller">
+      {up &&
+        <button className="scroll-up" onClick={() => navigateTo(up)}>
+          <img src={upArrow} alt="up"/>
+        </button>
+      }
+      {down &&
+        <button className="scroll-down" onClick={() => navigateTo(down)}>
+          <img src={downArrow} alt="down"/>
+        </button>
+      }
+    </div>
+  );
 }
 
 export default Scroller;

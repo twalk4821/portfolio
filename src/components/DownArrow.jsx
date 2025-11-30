@@ -1,47 +1,52 @@
-import React, { Component } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 
 import down from '../assets/down.png';
 import './DownArrow.css';
 
-class DownArrow extends Component {
-  state = {
-    visible: true,
-    scrolled: false,
-  };
+const DownArrow = () => {
+  const [visible, setVisible] = useState(true);
+  const [scrolled, setScrolled] = useState(false);
+  const visibleRef = useRef(visible);
 
-  componentDidMount() {
-    this.scroll = window.addEventListener('scroll', this.handleScroll)
-  }
+  useEffect(() => {
+    visibleRef.current = visible;
+  }, [visible]);
 
-  handleScroll = () => {
-    const { scrollY } = window;
-    const { visible } = this.state;
-    if (scrollY === 0 && !visible) this.setState({ visible: true });
-    if (scrollY > 0 && visible) this.setState({ visible: false, scrolled: true });
-  }
+  useEffect(() => {
+    const handleScroll = () => {
+      const { scrollY } = window;
+      if (scrollY === 0 && !visibleRef.current) setVisible(true);
+      if (scrollY > 0 && visibleRef.current) {
+        setVisible(false);
+        setScrolled(true);
+      }
+    };
 
-  navigate = () => {
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
+  const navigate = () => {
     window.scroll({
       top: document.querySelector('.projectsHeader').offsetTop - 75,
       behavior: 'smooth', 
-    })
-    this.setState({ visible: false });
-  }
+    });
+    setVisible(false);
+  };
 
-  render() {
-    const { visible, scrolled } = this.state;
+  let classes = 'down' + (!visible ? ' hidden' : '');
+  classes += (scrolled ? ' scrolled' : ' noscroll');
 
-    let classes = 'down' + (!visible ? ' hidden' : '');
-    classes += (scrolled ? ' scrolled' : ' noscroll');
-
-    return (
+  return (
     <div className={classes}>
-      <button onClick={this.navigate}>
+      <button onClick={navigate}>
         <img src={down} alt="down"/>
       </button>
     </div>
-    );
-  }
+  );
 };
 
 export default DownArrow;

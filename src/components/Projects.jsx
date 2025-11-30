@@ -5,6 +5,7 @@ import ProjectTile from './ProjectTile';
 
 import psapp from '../assets/psapp.webp'
 import greenhouse from '../assets/greenhouse.png'
+import spellsTrouble from '../assets/spells.webp'
 import societi from '../assets/societi.png'
 import kanjiIOS from '../assets/kanji-ios.jpg';
 import kanjiAndroid from '../assets/kanji-android.png'
@@ -35,6 +36,17 @@ const row1 = [
     LiveData and Data-Binding APIs.`,
     url: 'https://play.google.com/store/apps/details?id=com.wf.wellsfargomobile'
   },
+  {
+    id: 2,
+    img: spellsTrouble,
+    title: 'Spells Trouble',
+    subtitle: 'iOS/macOS Cross-Platform Edutainment',
+    description: `An educational game for learning spelling, where letters are scattered throughout the level,
+    which once collected must be unscrambled to solve each puzzle. The idea hearkens back to educational games of the 90s, 
+    where simple level progression elements and storytelling were combined with intellectual challenges. 
+    The code and soundtrack were made by myself, while the artwork was produced by my partner.`,
+    url: 'https://apps.apple.com/us/app/spells-trouble/id6751154201'
+  },
 
   {
     id: 3,
@@ -62,7 +74,7 @@ const row1 = [
     url: 'https://itunes.apple.com/us/app/kanji-reader/id1457506025?mt=8',
   },
   {
-    id: 2,
+    id: 5,
     img: societi,
     title: 'Societi',
     subtitle: 'Live TV Trivia',
@@ -75,7 +87,7 @@ const row1 = [
     url: 'https://play.google.com/store/apps/details?id=com.Societi&hl=en_US',
   },
   {
-    id: 5,
+    id: 6,
     img: defcon5,
     title: 'VR Control Panel',
     subtitle: 'Virtual Reality Management Software',

@@ -18,15 +18,15 @@ const isLocalhost = Boolean(
     )
 );
 
-export default function register() {
-  if (process.env.NODE_ENV === 'production' && 'serviceWorker' in navigator) {
+export default function register(config) {
+  if ('serviceWorker' in navigator) {
     // The URL constructor is available in all browsers that support SW.
     const publicUrl = new URL(process.env.PUBLIC_URL, window.location);
     if (publicUrl.origin !== window.location.origin) {
       // Our service worker won't work if PUBLIC_URL is on a different origin
       // from what our page is served on. This might happen if a CDN is used to
       // serve assets; see https://github.com/facebookincubator/create-react-app/issues/2374
-      return;
+      return Promise.resolve();
     }
 
     window.addEventListener('load', () => {
@@ -37,14 +37,22 @@ export default function register() {
         checkValidServiceWorker(swUrl);
       } else {
         // Is not local host. Just register service worker
-        registerValidSW(swUrl);
+        return registerValidSW(swUrl);
       }
     });
   }
+  return Promise.resolve();
+}
+
+export function getServiceWorkerRegistration() {
+  if ('serviceWorker' in navigator) {
+    return navigator.serviceWorker.ready;
+  }
+  return Promise.resolve(null);
 }
 
 function registerValidSW(swUrl) {
-  navigator.serviceWorker
+  return navigator.serviceWorker
     .register(swUrl)
     .then(registration => {
       registration.onupdatefound = () => {
@@ -66,9 +74,11 @@ function registerValidSW(swUrl) {
           }
         };
       };
+      return registration;
     })
     .catch(error => {
       console.error('Error during service worker registration:', error);
+      throw error;
     });
 }
 

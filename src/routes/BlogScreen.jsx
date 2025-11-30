@@ -1,4 +1,4 @@
-import React, { Component, useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom'
 import Chip from 'material-ui/Chip';
 import BlogHeader from '../components/BlogHeader'
@@ -41,21 +41,6 @@ const BlogScreen = () => {
       setPosts(items)
     })
   }, [])
-
-  const toggle = () => {
-    const { goToBlogScreen } = this.props;
-    const { posts, buttonText } = this.state
-
-    var displayPosts, text
-    if (buttonText === "Show More") {
-      text = "See all"
-      displayPosts = posts
-    } else {
-
-    }
-
-    this.setState({ buttonText: text, displayPosts })
-  }
 
   const _onClickChip = (x) => {
     const category = x.target.innerHTML;
