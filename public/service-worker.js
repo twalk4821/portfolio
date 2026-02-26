@@ -6,8 +6,6 @@
 const DB_NAME = 'PortfolioImageCache';
 const DB_VERSION = 1;
 const STORE_NAME = 'images';
-const CACHE_VERSION = 'v1';
-const STATIC_CACHE = `portfolio-static-${CACHE_VERSION}`;
 
 // IndexedDB helper functions for service worker context
 function openDB() {
@@ -73,14 +71,16 @@ async function getImage(url) {
 
 // Check if request is for an image
 function isImageRequest(url) {
-  const imageExtensions = ['.jpg', '.jpeg', '.png', '.gif', '.webp', '.svg', '.bmp', '.ico'];
+  // Intentionally exclude `.ico` (favicon requests are noisy and don't benefit much from our image caching).
+  const imageExtensions = ['.jpg', '.jpeg', '.png', '.gif', '.webp', '.svg', '.bmp'];
   const urlLower = url.toLowerCase();
+  if (urlLower.includes('/favicon.ico') || urlLower.endsWith('favicon.ico')) return false;
   return imageExtensions.some(ext => urlLower.includes(ext)) ||
-         /\.(jpg|jpeg|png|gif|webp|svg|bmp|ico)(\?.*)?$/i.test(url) ||
+         /\.(jpg|jpeg|png|gif|webp|svg|bmp)(\?.*)?$/i.test(url) ||
          /\/static\/media\//.test(url);
 }
 
-// Install event - cache static assets
+// Install event
 self.addEventListener('install', (event) => {
   console.log('[SW] Installing service worker...');
   // Don't wait for install to complete, activate immediately
@@ -95,8 +95,7 @@ self.addEventListener('activate', (event) => {
       return Promise.all(
         cacheNames
           .filter((cacheName) => {
-            // Delete old caches that don't match current version
-            return cacheName.startsWith('portfolio-') && cacheName !== STATIC_CACHE;
+            return cacheName.startsWith('portfolio-');
           })
           .map((cacheName) => {
             console.log('[SW] Deleting old cache:', cacheName);
@@ -124,34 +123,6 @@ self.addEventListener('fetch', (event) => {
   if (isImageRequest(request.url)) {
     event.respondWith(handleImageRequest(request));
     return;
-  }
-
-  // Handle other static assets (JS, CSS, HTML) with Cache API
-  if (request.destination === 'script' || 
-      request.destination === 'style' || 
-      request.destination === 'document') {
-    event.respondWith(
-      caches.match(request).then((cachedResponse) => {
-        if (cachedResponse) {
-          return cachedResponse;
-        }
-        return fetch(request).then((response) => {
-          // Don't cache if not a valid response
-          if (!response || response.status !== 200 || response.type !== 'basic') {
-            return response;
-          }
-          // Clone the response
-          const responseToCache = response.clone();
-          caches.open(STATIC_CACHE).then((cache) => {
-            cache.put(request, responseToCache);
-          });
-          return response;
-        }).catch(() => {
-          // Network error - return a fallback if available
-          return new Response('Offline', { status: 503 });
-        });
-      })
-    );
   }
 });
 
